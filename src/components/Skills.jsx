@@ -28,20 +28,37 @@ export default function Skills() {
   return (
     <section id="skills" className="py-20 md:py-28 bg-gradient-to-b from-white to-blue-50/40 dark:from-[#0b1220] dark:to-[#0e1628]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-bold tracking-tight text-[#0D1B2A] dark:text-white text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-4xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#0056D2] via-[#0A84FF] to-[#00C4FF] text-center"
+        >
           Skills
         </motion.h2>
 
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillGroups.map((group, groupIdx) => (
-            <motion.div key={group.title} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: groupIdx * 0.05 }} className="p-6 rounded-2xl bg-white dark:bg-[#0b1220] border border-[#0056D2]/10 shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
+            <motion.div
+              key={group.title}
+              initial={{ opacity: 0, y: 14, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: groupIdx * 0.05, duration: 0.45, ease: 'easeOut' }}
+              className="p-6 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_60px_rgba(0,196,255,0.25)] transition"
+            >
               <div className="flex items-center gap-3">
                 <group.icon className="text-[#0056D2] dark:text-[#00C4FF]" />
-                <h3 className="font-semibold text-[#0D1B2A] dark:text-white">{group.title}</h3>
+                <h3 className="font-semibold text-[#0D1B2A] dark:text-white tracking-wide">
+                  {group.title}
+                </h3>
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
-                {group.items.map((item, idx) => (
-                  <span key={item} className="text-xs px-3 py-1 rounded-full bg-[#0056D2]/10 text-[#0056D2] border border-[#0056D2]/20">
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    className="text-xs px-3 py-1 rounded-full bg-[#0056D2]/10 text-[#0056D2] border border-[#0056D2]/20 hover:bg-[#0056D2]/15 transition-colors"
+                  >
                     {item}
                   </span>
                 ))}
